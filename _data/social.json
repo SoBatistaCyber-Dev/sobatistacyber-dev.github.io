@@ -2,32 +2,62 @@
   {
     "name": "Github",
     "link": "https://github.com/zerostaticthemes/jekyll-serif-theme",
-    "image": "images/social/github.svg"
+    "description": "New clients receive an obligation free consultation.",
+    "image": {
+      "url": "images/social/twitter.svg",
+      "width": 80,
+      "height": 80
+    }
   },
   {
     "name": "Twitter",
     "link": "https://twitter.com/zerostaticio",
-    "image": "images/social/twitter.svg"
+    "description": "New clients receive an obligation free consultation.",
+    "image": {
+      "url": "images/social/twitter.svg",
+      "width": 80,
+      "height": 80
+    }
   },
   {
       "name": "Facebook",
       "link": "https://facebook.com",
-      "image": "images/social/facebook.svg"
+      "description": "New clients receive an obligation free consultation.",
+      "image": {
+        "url": "images/social/twitter.svg",
+        "width": 80,
+        "height": 80
+      }
   },
   {
       "name": "Email",
       "link": "mailto:ekyllserif@example.com ",
-      "image": "images/social/email.svg"
+      "description": "New clients receive an obligation free consultation.",
+      "image": {
+        "url": "images/social/twitter.svg",
+        "width": 80,
+        "height": 80
+      }
   },
   {
       "name": "Instagram",
       "link": "https://instagram.com",
-      "image": "images/social/instagram.svg"
+      "description": "New clients receive an obligation free consultation.",
+      "image": {
+        "url": "images/social/twitter.svg",
+        "width": 80,
+        "height": 80
+      }
   },
   {
       "name": "Discord",
       "link": "https://discord.com",
-      "image": "images/social/discord.svg"
+      "description": "New clients receive an obligation free consultation.",
+      "image": {
+        "url": "images/social/twitter.svg",
+        "width": 80,
+        "height": 80
+      }
   }
 
 ]
