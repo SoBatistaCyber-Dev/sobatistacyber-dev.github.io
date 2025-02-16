@@ -26,7 +26,7 @@ bodyClass: "page-contact"
                     <li>✔ Penetration testing discussions.</li>
                     <li>✔ Compliance & best practices.</li>
                 </ul>
-                <a href="#" class="btn btn-primary mt-3">Book a Free Business Call</a>
+                <a href="#" class="btn">🚀 Book a Free Business Call</a>
             </div>
 
             <!-- Right Side: 1:1 Coaching Call -->
@@ -39,7 +39,7 @@ bodyClass: "page-contact"
                     <li>✔ CTFs, certifications, and bug bounty advice.</li>
                     <li>✔ Ask me anything cybersecurity-related.</li>
                 </ul>
-                <a href="#" class="btn btn-primary mt-3">Book a Coaching Call</a>
+                <a href="#" class="btn">🔥 Book a Coaching Call</a>
             </div>
         </div>
     </div>
@@ -55,5 +55,26 @@ bodyClass: "page-contact"
     .calendly-card:hover {
         background-color: #f8f9fa; /* Light hover effect */
         transform: translateY(-3px); /* Slight lift */
+    }
+
+    .calendly-card a.btn {
+        display: inline-block;
+        background-color: #d91c1c; /* Strong red for urgency */
+        color: white !important;
+        font-size: 1.2em; /* Larger text */
+        font-weight: bold;
+        padding: 15px 25px;
+        border-radius: 8px;
+        text-transform: uppercase;
+        text-decoration: none;
+        margin-top: 15px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    /* 🔥 Hover Effect for Button 🔥 */
+    .calendly-card a.btn:hover {
+        background-color: #ff3b3b; /* Lighter red for eye-catching hover */
+        transform: scale(1.1); /* Makes it "pop" when hovered */
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Extra depth */
     }
 </style>
