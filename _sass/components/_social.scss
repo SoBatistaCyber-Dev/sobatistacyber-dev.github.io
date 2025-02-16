@@ -1,3 +1,9 @@
+.col-12.col-md-6.col-lg-4.mb-2 {
+  display: flex;
+  justify-content: center; /* Centers the .social div horizontally */
+  align-items: center; /* Centers the .social div vertically */
+}
+
 .social {
   width: 300px; /* Fixed width */
   height: 220px; /* Fixed height */
