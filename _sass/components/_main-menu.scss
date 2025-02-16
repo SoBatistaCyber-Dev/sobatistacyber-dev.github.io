@@ -13,15 +13,14 @@
       > a {
         padding: 10px 12px 10px 12px;
         display: inline-block;
-        font-weight: normal;
+        font-weight: bold;
         text-decoration: none;
         color: $primary;
         &:hover {
-          font-weight: bold;
-          color: #b22222;
+          // color: #b22222;
           // color: #c03c2c;
           // color: #701818;
-          // color: #d9913a;
+          color: #d9913a;
           // color: #1c4989;
         }
       }
