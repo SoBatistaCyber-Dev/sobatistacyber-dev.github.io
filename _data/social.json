@@ -1,6 +1,6 @@
 [
   {
-    "name": "YouTube",
+    "name": "SoBatistaCyber",
     "link": "https://www.youtube.com/channel/UCFWARi7HFbPKgO0Q6fShDCQ/",
     "description": "My YouTube channel where I share about hacking, linux, networking & other cybersecurity content",
     "image": {
@@ -11,40 +11,40 @@
   },
   {
     "name": "X",
-    "link": "https://twitter.com/zerostaticio",
-    "description": "New clients receive an obligation free consultation.",
+    "link": "https://x.com/SoBatistaCyber",
+    "description": "In X I share my daily work, achievements & struggles.",
     "image": {
-      "url": "images/social/discord.svg",
+      "url": "images/social/x.png",
       "width": 80,
       "height": 80
     }
   },
   {
       "name": "GitHub",
-      "link": "https://facebook.com",
-      "description": "New clients receive an obligation free consultation.",
+      "link": "https://github.com/SoBatista",
+      "description": "Here you can find my code & open source projects.",
       "image": {
-        "url": "images/social/discord.svg",
+        "url": "images/social/github.svg",
         "width": 80,
         "height": 80
       }
   },
   {
       "name": "Medium",
-      "link": "mailto:ekyllserif@example.com ",
-      "description": "New clients receive an obligation free consultation.",
+      "link": "https://medium.com/@SoBatistaCyber",
+      "description": "In Medium I publish writeups, how to posts & other interesting stuff I want to learn & talk about",
       "image": {
-        "url": "images/social/discord.svg",
+        "url": "images/social/medium.svg",
         "width": 80,
         "height": 80
       }
   },
   {
       "name": "Instagram",
-      "link": "https://instagram.com",
-      "description": "New clients receive an obligation free consultation.",
+      "link": "https://www.instagram.com/sobatistacyber/",
+      "description": "On Instagram I share my daily work, achievements & struggles.",
       "image": {
-        "url": "images/social/discord.svg",
+        "url": "images/social/instagram.svg",
         "width": 80,
         "height": 80
       }
