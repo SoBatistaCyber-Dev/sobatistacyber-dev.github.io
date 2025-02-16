@@ -87,5 +87,6 @@
 /* 🔥 Hover Effect for Button 🔥 */
 .calendly-card a.btn:hover {
   background-color: #ff3b3b; /* Lighter red for eye-catching hover */
+  transform: scale(1.2);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Extra depth */
 }
