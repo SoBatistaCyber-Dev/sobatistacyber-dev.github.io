@@ -1,40 +1,40 @@
 [
   {
-    "name": "Github",
-    "link": "https://github.com/zerostaticthemes/jekyll-serif-theme",
-    "description": "New clients receive an obligation free consultation.",
+    "name": "YouTube",
+    "link": "https://www.youtube.com/channel/UCFWARi7HFbPKgO0Q6fShDCQ/",
+    "description": "My YouTube channel where I share about hacking, linux, networking & other cybersecurity content",
     "image": {
-      "url": "images/social/twitter.svg",
+      "url": "images/social/youtube.svg",
       "width": 80,
       "height": 80
     }
   },
   {
-    "name": "Twitter",
+    "name": "X",
     "link": "https://twitter.com/zerostaticio",
     "description": "New clients receive an obligation free consultation.",
     "image": {
-      "url": "images/social/twitter.svg",
+      "url": "images/social/discord.svg",
       "width": 80,
       "height": 80
     }
   },
   {
-      "name": "Facebook",
+      "name": "GitHub",
       "link": "https://facebook.com",
       "description": "New clients receive an obligation free consultation.",
       "image": {
-        "url": "images/social/twitter.svg",
+        "url": "images/social/discord.svg",
         "width": 80,
         "height": 80
       }
   },
   {
-      "name": "Email",
+      "name": "Medium",
       "link": "mailto:ekyllserif@example.com ",
       "description": "New clients receive an obligation free consultation.",
       "image": {
-        "url": "images/social/twitter.svg",
+        "url": "images/social/discord.svg",
         "width": 80,
         "height": 80
       }
@@ -44,7 +44,7 @@
       "link": "https://instagram.com",
       "description": "New clients receive an obligation free consultation.",
       "image": {
-        "url": "images/social/twitter.svg",
+        "url": "images/social/discord.svg",
         "width": 80,
         "height": 80
       }
@@ -54,7 +54,7 @@
       "link": "https://discord.com",
       "description": "New clients receive an obligation free consultation.",
       "image": {
-        "url": "images/social/twitter.svg",
+        "url": "images/social/discord.svg",
         "width": 80,
         "height": 80
       }
