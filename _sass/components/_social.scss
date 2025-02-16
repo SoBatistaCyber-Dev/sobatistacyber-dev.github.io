@@ -1,17 +1,17 @@
 .social {
-  width: 220px; /* Fixed width */
-  height: 300px; /* Fixed height */
+  width: 300px; /* Fixed width */
+  height: 220px; /* Fixed height */
   border: 2px solid rgba(0, 0, 0, 0.1);
   border-radius: 6px;
   padding: 15px;
-  background-color: #f8f8f8;
+  background-color: #fff6f8;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 2px 2px 10px #00000080;
   overflow: hidden; /* Prevents content overflow */
 }
 
@@ -20,11 +20,6 @@
   border-color: rgba(0, 0, 0, 0.2);
   transform: translateY(-2px);
   box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.1);
-}
-
-.social:active {
-  transform: translateY(0);
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.05);
 }
 
 /* Image Styling - Fixed Size & Centered */
