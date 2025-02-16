@@ -1,5 +1,6 @@
 .main-menu {
   display: none;
+  background-color: #FFF6F8;
   @include media-breakpoint-up(md) {
     display: block;
   }

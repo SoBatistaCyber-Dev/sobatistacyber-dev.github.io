@@ -1,13 +1,13 @@
 ---
 title: SoBatistaCyber
 layout: home
-description: Jekyll Serif contains content types for a typical business website. The theme is fully responsive, blazing fast and artfully illustrated.
+description: Not sure what to put here to be honest.
 intro_image: "images/illustrations/home.jpg"
 intro_image_absolute: true
 intro_image_hide_on_mobile: true
 show_call_box: true
 ---
 
-# Serif - A Jekyll Business Theme.
+# SoBatista - Cybersecurity consulting firm
 
-Serif contains content types for a typical business website. The theme is fully responsive, blazing fast and artfully illustrated.
+At SoBatistaCyber, we specialize in API security, penetration testing, and ethical hacking training. Let’s make your digital world safer—one vulnerability at a time.
