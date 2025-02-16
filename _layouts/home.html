@@ -53,12 +53,12 @@ bodyClass: "page-home"
 
       {% for social in site.data.social %}
       <div class="col-12 col-md-6 col-lg-4 mb-2" onclick="window.location.href='{{ social.link }}'">
-        <div class="feature">
+        <div class="social">
           {% if social.image %}
-          <div class="feature-image"><img alt="{{ social.name }} logo" src="{{ social.image.url | relative_url }}" width="{{ social.image.width }}" height="{{ social.image.height }}" /></div>
+          <div class="social-image"><img alt="{{ social.name }} logo" src="{{ social.image.url | relative_url }}" width="{{ social.image.width }}" height="{{ social.image.height }}" /></div>
           {% endif %}
-          <h2 class="feature-title">{{ social.name }}</h2>
-          <div class="feature-content">{{ social.description }}</div>
+          <h2 class="social-title">{{ social.name }}</h2>
+          <div class="social-content">{{ social.description }}</div>
         </div>
       </div>
       {% endfor %}

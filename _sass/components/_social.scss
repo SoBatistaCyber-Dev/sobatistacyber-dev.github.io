@@ -1,14 +1,50 @@
 .social {
-  display: block;
-  img {
-    width: 20px;
-    height: 20px;
-  }
-  a {
-    padding: 10px;
-    display: inline-block;
-    &:hover {
-      opacity: 0.8;
-    }
-  }
+  height: auto;
+  border: 2px solid rgba(0, 0, 0, 0.1); /* Light border for contrast */
+  border-radius: 6px;
+  padding: 15px 20px;
+  background-color: #f8f8f8; /* Light gray for contrast */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.05);
 }
+
+.social:hover {
+  background-color: #e8e8e8; /* Slightly darker gray to enhance hover effect */
+  border-color: rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px); /* Subtle lift effect */
+  box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Image section remains the same */
+.social .feature-image {
+  flex: 0 0 auto;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.social img {
+  width: 100%;
+  height: auto;
+}
+
+/* Title & Content */
+.social .social-title {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.social .social-content {
+  margin-bottom: 0;
+  margin-top: auto;
+  font-size: 0.9em;
+  color: #333; /* Darker text for readability */
+}
+
