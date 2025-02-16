@@ -1,6 +1,5 @@
 .main-menu {
   display: none;
-  background-color: #FFF6F8;
   @include media-breakpoint-up(md) {
     display: block;
   }
@@ -10,7 +9,7 @@
     justify-content: flex-start;
     > li {
       list-style: none;
-      font-size: 2rem;
+      font-size: 1.5rem;
       > a {
         padding: 10px 12px 10px 12px;
         display: inline-block;
@@ -18,7 +17,12 @@
         text-decoration: none;
         color: $primary;
         &:hover {
-          text-decoration: underline;
+          font-weight: bold;
+          color: #b22222;
+          // color: #c03c2c;
+          // color: #701818;
+          // color: #d9913a;
+          // color: #1c4989;
         }
       }
       &.active {
