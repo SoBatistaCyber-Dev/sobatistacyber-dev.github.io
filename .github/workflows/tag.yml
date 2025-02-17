@@ -3,7 +3,7 @@ name: Auto Version Tagging
 on:
   push:
     branches:
-      - main  # Runs when pushing to main
+      - main
   workflow_dispatch:
     inputs:
       version_type:
@@ -71,7 +71,14 @@ jobs:
           echo "New tag: $new_tag"
           echo "new_tag=$new_tag" >> $GITHUB_ENV
 
-      - name: Create New Tag
+      - name: Configure Git User
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Authenticate and Push Tag
+        env:
+          PAT: ${{ secrets.GH_PAT }}  # Use Personal Access Token (PAT)
         run: |
           git tag ${{ env.new_tag }}
-          git push origin ${{ env.new_tag }}
+          git push https://x-access-token:${PAT}@github.com/${{ github.repository }}.git ${{ env.new_tag }}
