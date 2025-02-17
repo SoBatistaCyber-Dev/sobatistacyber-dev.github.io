@@ -1,9 +1,6 @@
 .strip {
-  background: white;
+  background: $primary;
   background-repeat: no-repeat;
-}
-.strip-white {
-  background-color: white;
 }
 .strip-grey {
   background-color: $white-offset;
