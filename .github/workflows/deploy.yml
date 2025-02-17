@@ -54,10 +54,14 @@ jobs:
         run: |
           bundle exec jekyll build --destination ./_site
 
+      - name: Verify Build Output  # ✅ New Debug Step
+        run: |
+          echo "Listing build directory:"
+          ls -lah ./_site
+
       - name: Upload Jekyll Build Artifact
-        uses: actions/upload-artifact@v4  # ✅ Fixed: Now uses v4 (latest version)
+        uses: actions/upload-pages-artifact@v2  # ✅ Correct artifact upload
         with:
-          name: jekyll-site
           path: ./_site  # Jekyll outputs to _site by default
 
   report-build-status:
