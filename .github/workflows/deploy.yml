@@ -78,7 +78,7 @@ jobs:
       - name: Download Jekyll Artifact
         uses: actions/download-artifact@v4
         with:
-          name: jekyll-site
+          name: github-pages
           path: ./_site
 
       - name: Deploy to GitHub Pages
