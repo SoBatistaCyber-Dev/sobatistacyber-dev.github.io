@@ -17,7 +17,7 @@ $steel: #5c5a5a;
 // Links
 $link-color: $primary;
 $link-decoration: none;
-$link-hover-color: color.adjust($primary, $lightness: 10%);
+$link-hover-color: adjust-color($primary, $lightness: 10%);
 $link-hover-decoration: underline;
 
 // Fonts
