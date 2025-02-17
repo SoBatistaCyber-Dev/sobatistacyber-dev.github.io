@@ -27,6 +27,8 @@ defaults:
 
 sass:
   style: compressed # possible values: nested expanded compact compressed
+  quiet_deps: true
+  sourcemap: never
 
 plugins:
   - jekyll-environment-variables
