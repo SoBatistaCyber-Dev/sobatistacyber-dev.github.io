@@ -37,10 +37,12 @@ exclude:
   - Gemfile
   - Gemfile.lock
   - node_modules
-  - vendor/bundle/
+  - vendor
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
   - LICENSE.md
   - LICENSE
   - README.md
+  - .git
+  - _config.yml
