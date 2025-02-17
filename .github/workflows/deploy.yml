@@ -7,8 +7,6 @@ on:
         description: "Tag to deploy (leave empty for latest commit)"
         required: false
   push:
-    branches:
-      - main  # Default: Deploy latest commit on main branch
     tags:
       - 'v*'  # Auto-deploy when a new tag is pushed
 
