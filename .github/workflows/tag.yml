@@ -80,5 +80,6 @@ jobs:
         env:
           PAT: ${{ secrets.GH_PAT }}  # Use Personal Access Token (PAT)
         run: |
+          git remote set-url origin https://x-access-token:${PAT}@github.com/${{ github.repository }}.git
           git tag ${{ env.new_tag }}
-          git push https://x-access-token:${PAT}@github.com/${{ github.repository }}.git ${{ env.new_tag }}
+          git push origin ${{ env.new_tag }}
