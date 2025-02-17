@@ -1,0 +1,77 @@
+name: Auto Version Tagging
+
+on:
+  push:
+    branches:
+      - main  # Runs when pushing to main
+  workflow_dispatch:
+    inputs:
+      version_type:
+        description: 'Choose version increment (patch, minor, major)'
+        required: false
+        default: 'patch'
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Fetch all tags
+
+      - name: Get Latest Tag
+        id: get_tag
+        run: |
+          latest_tag=$(git describe --tags --abbrev=0 2>/dev/null || echo "v0.0.0")
+          echo "Latest tag: $latest_tag"
+          echo "tag=$latest_tag" >> $GITHUB_ENV
+
+      - name: Get Commit Message
+        id: commit_message
+        run: |
+          commit_msg=$(git log -1 --pretty=%B)
+          echo "Commit message: $commit_msg"
+          echo "commit_msg=$commit_msg" >> $GITHUB_ENV
+
+      - name: Determine Version Increment
+        id: determine_increment
+        run: |
+          if echo "${{ env.commit_msg }}" | grep -q "#major"; then
+            increment="major"
+          elif echo "${{ env.commit_msg }}" | grep -q "#minor"; then
+            increment="minor"
+          elif echo "${{ env.commit_msg }}" | grep -q "#patch"; then
+            increment="patch"
+          else
+            increment="${{ github.event.inputs.version_type || 'patch' }}"  # Default to patch if no keyword is found
+          fi
+          echo "Version increment: $increment"
+          echo "increment=$increment" >> $GITHUB_ENV
+
+      - name: Parse Version and Increment
+        id: parse_version
+        run: |
+          version="${{ env.tag }}"
+          version="${version#v}"  # Remove 'v' prefix
+          IFS='.' read -r major minor patch <<< "$version"
+
+          case "${{ env.increment }}" in
+            "major") major=$((major + 1)); minor=0; patch=0 ;;
+            "minor") minor=$((minor + 1)); patch=0 ;;
+            "patch") patch=$((patch + 1)) ;;
+          esac
+
+          new_tag="v$major.$minor.$patch"
+          echo "New tag: $new_tag"
+          echo "new_tag=$new_tag" >> $GITHUB_ENV
+
+      - name: Create New Tag
+        run: |
+          git tag ${{ env.new_tag }}
+          git push origin ${{ env.new_tag }}
