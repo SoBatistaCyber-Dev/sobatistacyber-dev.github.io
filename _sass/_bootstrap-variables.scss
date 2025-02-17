@@ -19,7 +19,7 @@ $grid-gutter-width: 30px;
 
 $spacer: 1rem;
 $spacers: ();
-$spacers: map-merge(
+$spacers: map.merge(
   (
     0: 0,
     1: 10px,

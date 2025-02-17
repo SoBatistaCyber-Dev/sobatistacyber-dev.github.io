@@ -3,7 +3,7 @@ main:
     url: "/services/"
     weight: 2
   - name: "Social Media"
-    url: "/social-media/"
+    url: "/social/"
     weight: 3
   - name: "About"
     url: "/about/"
