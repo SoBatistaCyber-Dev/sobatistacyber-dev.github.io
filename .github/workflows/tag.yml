@@ -16,6 +16,11 @@ on:
           - minor
           - major
 
+permissions:  
+  contents: write  # Grant write access to push tags  
+  actions: read    # Read access for workflow execution  
+  packages: read   # Read access for dependency management  
+
 jobs:
   tag:
     runs-on: ubuntu-latest
@@ -78,8 +83,8 @@ jobs:
 
       - name: Authenticate and Push Tag
         env:
-          PAT: ${{ secrets.GH_PAT }}  # Use Personal Access Token (PAT)
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git remote set-url origin https://x-access-token:${PAT}@github.com/${{ github.repository }}.git
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git
           git tag ${{ env.new_tag }}
           git push origin ${{ env.new_tag }}
