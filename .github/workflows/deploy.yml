@@ -1,0 +1,78 @@
+name: GitHub Pages Deployment
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Tag to deploy (leave empty for latest commit)"
+        required: false
+  push:
+    branches:
+      - main  # Default: Deploy latest commit on main branch
+    tags:
+      - 'v*'  # Auto-deploy when a new tag is pushed
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Fetch all commits and tags
+
+      - name: Get Latest Tag (if not provided)
+        id: get_latest_tag
+        if: github.event_name == 'workflow_dispatch' && github.event.inputs.tag == ''
+        run: |
+          latest_tag=$(git describe --tags `git rev-list --tags --max-count=1`)
+          echo "Using latest tag: $latest_tag"
+          echo "tag=$latest_tag" >> $GITHUB_ENV
+
+      - name: Checkout Selected Tag or Latest Commit
+        run: |
+          TAG_TO_DEPLOY=${{ github.event.inputs.tag || env.tag || github.ref_name }}
+          echo "Deploying: $TAG_TO_DEPLOY"
+          git checkout $TAG_TO_DEPLOY
+
+      - name: Setup Ruby and Jekyll
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1'  # Use the latest stable Ruby version
+
+      - name: Install Jekyll Dependencies
+        run: |
+          gem install bundler
+          bundle install
+
+      - name: Build Jekyll Site
+        run: |
+          bundle exec jekyll build --destination ./_site
+
+      - name: Upload Build Artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./_site  # Jekyll outputs to _site by default
+
+  report-build-status:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Report Build Status
+        run: echo "Jekyll build successful!"
+
+  deploy:
+    needs: [build, report-build-status]
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v2
