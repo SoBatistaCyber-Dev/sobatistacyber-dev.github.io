@@ -1,47 +1,114 @@
 .intro {
+  position: relative;
   display: flex;
-  justify-content: flex-start;
   align-items: center;
-  padding-top: 60px;
-  padding-bottom: 60px;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 20px;
+  min-height: 500px;
+  color: $white;
   overflow: hidden;
+
+  // Blurred Background Effect
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    //background: url('/images/illustrations/home4.jpg') no-repeat center center;
+    background-size: cover;
+    filter: blur(px);  // Adjust blur intensity
+    z-index: 1;
+  }
+
   @include media-breakpoint-up(md) {
-    padding-top: 140px;
-    padding-bottom: 140px;
+    padding: 100px;
+    min-height: 600px;
   }
+}
+
+// Parent column should use flexbox to center its child
+.col-12.col-md-7.col-lg-6 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Blurred Content Box (Improved)
+.intro-content {
+  position: relative;
+  color: $white;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.7); // Slightly more opacity for better readability
+  backdrop-filter: blur(12px) saturate(150%);  // Improved blur + color enhancement
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 75%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  // Hover Effect - Makes it feel interactive
+  // &:hover {
+  //  transform: scale(1.05);
+  //  box-shadow: 0px 0px 25px rgba(255, 49, 49, 0.9);
+  //}
+
   h1 {
-    color: $black;
-    font-size: 42px;
+    font-size: 2.2rem;
     font-weight: bold;
-    line-height: 1.2;
-    @include media-breakpoint-up(md) {
-      width: 80%;
-      font-size: 48px;
-    }
-    @include media-breakpoint-up(lg) {
-      font-size: 50px;
-    }
+    color: $white; // Eye-catching headline
+    margin-bottom: 15px;
   }
-  h2 {
-    width: 80%;
-    font-size: 1.2rem;
-    line-height: 1.4;
-    margin-bottom: 30px;
-    color: $black;
-    font-family: $font-family-base;
-  }
+
   p {
     font-size: 1.2rem;
-    font-weight: light;
-    line-height: 1.5;
-    color: $steel;
-    @include media-breakpoint-up(md) {
-      width: 80%;
+    font-weight: 500;
+    color: #ffffff;
+    margin-bottom: 20px;
+  }
+
+  // Stylish Call-To-Action (CTA) Button
+  .cta-button {
+    display: inline-block;
+    background: #ff3131;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 5px 15px rgba(255, 49, 49, 0.4);
+
+    &:hover {
+      background: #ff4f4f;
+      transform: scale(1.1);
+      box-shadow: 0px 8px 20px rgba(255, 49, 49, 0.7);
     }
   }
 }
 
-.intro-small {
-  padding-top: 100px;
-  padding-bottom: 30px;
+.intro-carousel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 1s ease-in-out; // Smooth transition between images
+}
+
+.intro-carousel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the image fills without distortion */
+  position: absolute;
+  top: 0;
+  left: 0;
+  // filter: blur(8px); /* Apply slight blur to keep text readable */
 }

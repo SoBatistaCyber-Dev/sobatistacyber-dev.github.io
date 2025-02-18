@@ -4,42 +4,44 @@ layout: default
 bodyClass: "page-contact"
 ---
 
-<div class="container pb-6 pt-6 pt-md-10 pb-md-10">
-    <div class="row justify-content-start">
-        <div class="row justify-content-center mb-5">
-            <h1 class="text-center">Book a Call with Me</h1>
-        </div>
-
-        <!-- Load Calendly Script Once -->
-        <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-        <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
-
-        <!-- Booking Options (Two Columns) -->
-        <div class="row justify-content-center text-center mb-4">
-            <!-- Left Side: Business Consultation -->
-            <div class="col-12 col-md-5 p-4 border rounded shadow-sm mx-md-3 calendly-card" 
-                onclick="Calendly.initPopupWidget({url: 'https://calendly.com/sobatistacyber'}); return false;">
-                <h2>🔐 Free Business Consultation</h2>
-                <p>For business owners, developers, and startups looking to improve their cybersecurity.</p>
-                <ul class="list-unstyled">
-                    <li>✔ Penetration Testing, with focus on API, Web & IoT</li>
-                    <li>✔ Cybersecurity Best Practices</li>
-                    <li>✔ Practical Security Hardening</li>
-                </ul>
-                <a class="btn">🚀 Book a Free Business Call</a>
+<div class="contact">
+    <div class="container pb-6 pt-6 pt-md-10 pb-md-10">
+        <div class="row justify-content-start">
+            <div class="row justify-content-center mb-5">
+                <h1 class="text-center">Book a Call with Me</h1>
             </div>
 
-            <!-- Right Side: 1:1 Coaching Call -->
-            <div class="col-12 col-md-5 p-4 border rounded shadow-sm mx-md-3 calendly-card"
-                onclick="Calendly.initPopupWidget({url: 'https://calendly.com/sobatistacyber'}); return false;">
-                <h2>🎓 1:1 Ethical Hacking Coaching</h2>
-                <p>For ethical hackers, IT professionals, and students looking to improve their hacking skills.</p>
-                <ul class="list-unstyled">
-                    <li>✔ Learn hacking techniques & tools.</li>
-                    <li>✔ CTFs, certifications, and bug bounty advice.</li>
-                    <li>✔ Ask me anything cybersecurity-related.</li>
-                </ul>
-                <a class="btn">🔥 Book a Coaching Call</a>
+            <!-- Load Calendly Script Once -->
+            <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+            <script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+
+            <!-- Booking Options (Two Columns) -->
+            <div class="row justify-content-center text-center mb-4">
+                <!-- Left Side: Business Consultation -->
+                <div class="col-12 col-md-5 p-4 border rounded shadow-sm mx-md-3 calendly-card" 
+                    onclick="Calendly.initPopupWidget({url: 'https://calendly.com/sobatistacyber'}); return false;">
+                    <h2>🔐 Free Business Consultation</h2>
+                    <p>For business owners, developers, and startups looking to improve their cybersecurity.</p>
+                    <ul class="list-unstyled">
+                        <li>✔ Penetration Testing, with focus on API, Web & IoT</li>
+                        <li>✔ Cybersecurity Best Practices</li>
+                        <li>✔ Practical Security Hardening</li>
+                    </ul>
+                    <a class="btn">🚀 Book a Free Business Call</a>
+                </div>
+
+                <!-- Right Side: 1:1 Coaching Call -->
+                <div class="col-12 col-md-5 p-4 border rounded shadow-sm mx-md-3 calendly-card"
+                    onclick="Calendly.initPopupWidget({url: 'https://calendly.com/sobatistacyber'}); return false;">
+                    <h2>🎓 1:1 Ethical Hacking Coaching</h2>
+                    <p>For ethical hackers, IT professionals, and students looking to improve their hacking skills.</p>
+                    <ul class="list-unstyled">
+                        <li>✔ Learn hacking techniques & tools.</li>
+                        <li>✔ CTFs, certifications, and bug bounty advice.</li>
+                        <li>✔ Ask me anything cybersecurity-related.</li>
+                    </ul>
+                    <a class="btn">🔥 Book a Coaching Call</a>
+                </div>
             </div>
         </div>
     </div>
