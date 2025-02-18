@@ -11,6 +11,10 @@
   text-align: center;
 }
 
+.contact {
+  background-color: #f0faff;
+}
+
 /* Make Entire Div Clickable */
 .calendly-card {
   cursor: pointer;
@@ -20,6 +24,7 @@
 .calendly-card:hover {
   background-color: #f8f9fa; /* Light hover effect */
   transform: translateY(-3px); /* Slight lift */
+  box-shadow: 0px 8px 20px rgba(255, 49, 49, 0.7);
 }
 
 .calendly-card a.btn {

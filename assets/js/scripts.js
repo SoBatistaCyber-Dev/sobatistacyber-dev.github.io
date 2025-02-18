@@ -22,8 +22,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const carouselImage = document.getElementById("carousel-image");
 
     if (!carouselImage) {
-        console.error("❌ carousel-image element not found! Check your HTML.");
-        return;
+        console.warn("❌ carousel-image element not found! Skipping carousel script.");
+        return; // Stop execution if the element is missing
     }
 
     function changeImage() {

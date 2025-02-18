@@ -1,6 +1,6 @@
 ---
 title: Social Media
-layout: page
+layout: social
 description: Social Media
 intro_image: "images/illustrations/reading.svg"
 intro_image_absolute: true
