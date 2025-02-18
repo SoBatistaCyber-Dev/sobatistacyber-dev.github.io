@@ -1,0 +1,33 @@
+[
+    {
+      "title": "API & IoT Security Expert",
+      "description": "Specializing in API penetration testing, IoT security, and ethical hacking to help secure digital assets.",
+      "image": { "url": "/images/icons/security.svg", "width": 80, "height": 80 }
+    },
+    {
+      "title": "20+ Hack The Box Machines",
+      "description": "Hands-on experience solving real-world security challenges on platforms like Hack The Box and TryHackMe.",
+      "image": { "url": "/images/icons/hacking.svg", "width": 80, "height": 80 }
+    },
+    {
+      "title": "Educator & Content Creator",
+      "description": "2,000+ subscribers on SoBatistaCyber, sharing practical cybersecurity knowledge through YouTube and Medium.",
+      "image": { "url": "/images/icons/education.svg", "width": 80, "height": 80 }
+    },
+    {
+      "title": "Conference Speaker & Attendee",
+      "description": "Regularly attending and networking at top cybersecurity conferences in Europe.",
+      "image": { "url": "/images/icons/conference.svg", "width": 80, "height": 80 }
+    },
+    {
+      "title": "Bug Bounty Hunter",
+      "description": "Discovered and reported security vulnerabilities in real-world applications, strengthening cybersecurity defenses.",
+      "image": { "url": "/images/icons/bug-bounty.svg", "width": 80, "height": 80 }
+    },
+    {
+      "title": "Custom Security Solutions",
+      "description": "Building IoT security tools and penetration testing frameworks tailored to client needs.",
+      "image": { "url": "/images/icons/tools.svg", "width": 80, "height": 80 }
+    }
+  ]
+  

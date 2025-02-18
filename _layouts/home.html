@@ -5,18 +5,21 @@ bodyClass: "page-home"
 
 <div class="intro">
   <div class="container">
+    <div class="intro-carousel">
+      <img id="carousel-image" src="/images/illustrations/home.jpg" alt="Cybersecurity Image">
+    </div>
     <div class="row justify-content-center align-items-center">
       <div class="col-12 col-md-7 col-lg-6">
         <div class="intro-content">
           {{ content }}
           <div>
-            <div class="pb-4">
+            <div class="pb-2">
               {% if site.data.contact.description %}
                   <div class="call-phone"><strong>{{ site.data.contact.description }} </strong>  </div>
               {% endif %}
             </div>
-              <div class="cta-button">
-                <a href="{{ site.data.contact.contact_button_link }}">Contact</a>
+              <div >
+                <a class="cta-button" href="{{ site.data.contact.contact_button_link }}">Book a FREE Call</a>
               </div>
           </div>
         </div>
@@ -72,6 +75,30 @@ bodyClass: "page-home"
 </div>
 {% endif %}
 
+{% if site.data.achievements %}
+<div class="strip strip-grey">
+  <div class="container pt-6 pb-6 pt-md-10 pb-md-10">
+    <h2 class="section-title text-center mb-4">Why Work With Me?</h2>
+    <div class="row justify-content-center">
+      {% for achievement in site.data.achievements %}
+      <div class="col-12 col-md-6 col-lg-4 mb-2">
+        <div class="achievement">
+          {% if achievement.image %}
+          <!--div class="achievement-image">
+            <img src="{{ achievement.image.url | relative_url }}" width="{{ achievement.image.width }}" height="{{ achievement.image.height }}" />
+          </div-->
+          {% endif %}
+          <h3 class="achievement-title">{{ achievement.title }}</h3>
+          <p class="achievement-content">{{ achievement.description }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endif %}
+
+<!--
 {% if site.data.features %}
 <div class="strip strip-grey">
   <div class="container pt-6 pb-6 pt-md-10 pb-md-10">
@@ -93,3 +120,4 @@ bodyClass: "page-home"
   </div>
 </div>
 {% endif %}
+-->
