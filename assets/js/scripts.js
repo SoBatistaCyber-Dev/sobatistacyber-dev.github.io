@@ -39,14 +39,20 @@ document.addEventListener("DOMContentLoaded", function () {
 // for the carousel
 document.addEventListener("DOMContentLoaded", function () {
     const slides = document.querySelectorAll(".service-slide");
-    let slideArray = Array.from(slides); // Convert NodeList to Array
+    let slideArray = Array.from(slides);
     const prevButton = document.getElementById("prevService");
     const nextButton = document.getElementById("nextService");
     let index = 1; // Middle slide starts as active
+    let isTransitioning = false; // Prevents multiple clicks during transition
 
     function updateCarousel() {
-        console.log(slideArray);
-        // Remove all classes
+        if (isTransitioning) return; // Prevent multiple clicks during animation
+        isTransitioning = true; // Lock transitions
+
+        console.log("Active Slide Index:", index);
+        console.log("Slides Order:", slideArray.map(s => s.dataset.index));
+
+        // Remove all previous classes
         slideArray.forEach(slide => slide.classList.remove("active", "left", "right", "others"));
 
         // Assign new classes
@@ -61,28 +67,40 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
-        // Apply size and opacity
+        // 🔄 **Apply Circular Motion Using Translate**
         slideArray.forEach((slide, i) => {
-            if (i === index) {
-                slide.style.opacity = "1";
-                slide.style.transform = "scale(1.2)";
-            } else if (i === (index - 1 + slideArray.length) % slideArray.length || i === (index + 1) % slideArray.length) {
-                slide.style.opacity = "0.8";
-                slide.style.transform = "scale(0.9)";
-            } else {
-                slide.style.opacity = "0";
-                slide.style.transform = "scale(0.7)";
-            }
-        });
+    let position = (i - index + slideArray.length) % slideArray.length;
+
+    if (position === 0) {
+        slide.style.transform = `translateX(0) scale(1.3)`;
+        slide.style.opacity = "1";
+    } else if (position === 1) {
+        slide.style.transform = `translateX(120%) scale(0.9)`; // 🔥 Reduced from 50% to 35%
+        slide.style.opacity = "0.8";
+    } else if (position === slideArray.length - 1) {
+        slide.style.transform = `translateX(-120%) scale(0.9)`; // 🔥 Reduced from -50% to -35%
+        slide.style.opacity = "0.8";
+    } else {
+        slide.style.transform = `translateX(240%) scale(0.7)`; // 🔥 Reduced from 100% to 80%
+        slide.style.opacity = "0";
+    }
+});
+
+        // Unlock after transition finishes
+        setTimeout(() => {
+            isTransitioning = false;
+        }, 1000); // Match CSS transition time (1s)
     }
 
     function shiftRight() {
-        slideArray.push(slideArray.shift()); // Moves first item to last
+        if (isTransitioning) return; // Prevent spamming clicks
+        index = (index - 1 + slideArray.length) % slideArray.length;
         updateCarousel();
     }
 
     function shiftLeft() {
-        slideArray.unshift(slideArray.pop()); // Moves last item to first
+        if (isTransitioning) return; // Prevent spamming clicks
+        index = (index + 1) % slideArray.length;
         updateCarousel();
     }
 
@@ -91,5 +109,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
     updateCarousel(); // Initial setup
 });
-
-

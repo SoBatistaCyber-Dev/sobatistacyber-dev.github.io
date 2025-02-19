@@ -32,7 +32,7 @@ bodyClass: "page-home"
   <div class="container pt-6 pb-6 pb-md-10">
     <div class="services-carousel-wrapper">
       <!-- Navigation Buttons -->
-      <button id="prevService" class="carousel-button left">&lt;</button>
+      <button id="prevService" class="carousel-button move-left">&lt;</button>
       <div class="services-carousel">
         {% for service in site.services %}
         <div class="service-slide" data-index="{{ forloop.index0 }}">
@@ -48,7 +48,7 @@ bodyClass: "page-home"
         {% endfor %}
       </div>
       <!-- Navigation Buttons -->
-      <button id="nextService" class="carousel-button right">&gt;</button>
+      <button id="nextService" class="carousel-button move-right">&gt;</button>
     </div>
   </div>
 </div>
