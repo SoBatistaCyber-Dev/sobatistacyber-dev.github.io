@@ -38,50 +38,51 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // for the carousel
 document.addEventListener("DOMContentLoaded", function () {
-    const carousel = document.querySelector(".services-carousel");
-    let slides = Array.from(document.querySelectorAll(".service-slide"));
+    const slides = document.querySelectorAll(".service-slide");
+    let slideArray = Array.from(slides); // Convert NodeList to Array
     const prevButton = document.getElementById("prevService");
     const nextButton = document.getElementById("nextService");
-
-    let index = 1; // Start with the second slide as active
+    let index = 1; // Middle slide starts as active
 
     function updateCarousel() {
-        console.log("Active Slide Index:", index); // See which slide is active
-        console.log("Slides Order:", slides.map(s => s.dataset.index)); // Log the order of slides
-    
-        slides.forEach((slide, i) => {
-            slide.classList.remove("active", "left", "right", "others");
+        console.log(slideArray);
+        // Remove all classes
+        slideArray.forEach(slide => slide.classList.remove("active", "left", "right", "others"));
 
-            if (i === index) {
-                slide.classList.add("active"); // Center
-            } else if (i === (index - 1 + slides.length) % slides.length) {
-                slide.classList.add("left"); // Left slide
-            } else if (i === (index + 1) % slides.length) {
-                slide.classList.add("right"); // Right slide
-            } else {
-                slide.classList.add("others"); // Hidden slides
+        // Assign new classes
+        slideArray[index].classList.add("active"); // Center slide (highlighted)
+        slideArray[(index - 1 + slideArray.length) % slideArray.length].classList.add("left"); // Left slide
+        slideArray[(index + 1) % slideArray.length].classList.add("right"); // Right slide
+
+        // Hide all other slides
+        slideArray.forEach((slide, i) => {
+            if (i !== index && i !== (index - 1 + slideArray.length) % slideArray.length && i !== (index + 1) % slideArray.length) {
+                slide.classList.add("others");
             }
         });
 
-        const activeSlide = slides[index];
-        const slideWidth = activeSlide.offsetWidth;
-        const carouselCenter = carousel.offsetWidth / 2;
-
-        const newScrollLeft = activeSlide.offsetLeft - carouselCenter + slideWidth / 2;
-
-        carousel.scrollTo({
-            left: newScrollLeft,
-            behavior: "smooth"
+        // Apply size and opacity
+        slideArray.forEach((slide, i) => {
+            if (i === index) {
+                slide.style.opacity = "1";
+                slide.style.transform = "scale(1.2)";
+            } else if (i === (index - 1 + slideArray.length) % slideArray.length || i === (index + 1) % slideArray.length) {
+                slide.style.opacity = "0.8";
+                slide.style.transform = "scale(0.9)";
+            } else {
+                slide.style.opacity = "0";
+                slide.style.transform = "scale(0.7)";
+            }
         });
     }
 
     function shiftRight() {
-        index = (index + 1) % slides.length; // ✅ Fix: Ensure smooth rotation
+        slideArray.push(slideArray.shift()); // Moves first item to last
         updateCarousel();
     }
 
     function shiftLeft() {
-        index = (index - 1 + slides.length) % slides.length; // ✅ Fix: Ensure smooth rotation
+        slideArray.unshift(slideArray.pop()); // Moves last item to first
         updateCarousel();
     }
 
@@ -90,4 +91,5 @@ document.addEventListener("DOMContentLoaded", function () {
 
     updateCarousel(); // Initial setup
 });
+
 

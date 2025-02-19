@@ -16,7 +16,6 @@
     width: 100%;
     overflow: hidden;
     padding: 180px 0;
-    
     // This enables an infinite loop effect visually
     &::after,
     &::before {
@@ -43,19 +42,16 @@
     transform: scale(1.3);
     opacity: 1;
     z-index: 3;
-    left: 50%;
     transform: translateX(-50%) scale(1.3);
 }
 
 // Left & Right Tiles (Smaller but visible)
 .service-slide.left {
-    transform: scale(0.9) translateX(40%);
     opacity: 0.8;
     z-index: 1;
 }
 
 .service-slide.right {
-    transform: scale(0.9) translateX(-40%);
     opacity: 0.8;
     z-index: 1;
 }
