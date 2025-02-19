@@ -4,8 +4,12 @@
     align-items: center;
     justify-content: center;
     max-width: 100%;
-    overflow: visible;  // 🔥 Ensures large tiles are not cut off
+    overflow: visible;
     min-height: 300px;
+
+    @media (max-width: 768px) {
+        min-height: 200px;
+    }
 }
 
 .services-carousel {
@@ -15,9 +19,12 @@
     position: absolute;
     width: 100%;
     overflow: visible;
-    padding: 150px;
-    transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1), opacity 1s ease-in-out; 
+    padding: 120px;
+    transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1), opacity 1s ease-in-out;
 
+    @media (max-width: 768px) {
+        padding: 80px; // Reduce padding for small screens
+    }
 }
 
 .service-slide {
@@ -32,6 +39,16 @@
     transform: scale(0.9);
     position: absolute; 
     margin: 0 -10px;
+
+    @media (max-width: 1024px) {
+        width: 200px;
+        height: 200px;
+    }
+
+    @media (max-width: 768px) {
+        width: 170px;
+        height: 170px;
+    }
 }
 
 // Active Slide (Bigger & Centered)
@@ -77,6 +94,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    @media (max-width: 768px) {
+        padding: 30px 15px;
+    }
+
     a {
         text-decoration: none;
         color: inherit;
@@ -111,6 +133,10 @@
         -webkit-box-orient: vertical;
         overflow: hidden;
         text-overflow: ellipsis;
+
+        @media (max-width: 768px) {
+            -webkit-line-clamp: 2; // Fewer lines on mobile
+        }
     }
 }
 
@@ -136,6 +162,12 @@
     &:hover {
         background: $call-to-action; // Darker hover effect
         transform: translateY(-50%) scale(1.1);
+    }
+
+    @media (max-width: 768px) {
+        width: 40px;
+        height: 40px;
+        font-size: 24px;
     }
 }
 

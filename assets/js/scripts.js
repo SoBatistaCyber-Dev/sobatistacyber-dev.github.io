@@ -46,19 +46,16 @@ document.addEventListener("DOMContentLoaded", function () {
     let isTransitioning = false; // Prevents multiple clicks during transition
 
     function updateCarousel() {
-        if (isTransitioning) return; // Prevent multiple clicks during animation
-        isTransitioning = true; // Lock transitions
+        if (isTransitioning) return;
+        isTransitioning = true;
 
-        console.log("Active Slide Index:", index);
-        console.log("Slides Order:", slideArray.map(s => s.dataset.index));
-
-        // Remove all previous classes
+        // Remove previous classes
         slideArray.forEach(slide => slide.classList.remove("active", "left", "right", "others"));
 
         // Assign new classes
-        slideArray[index].classList.add("active"); // Center slide (highlighted)
-        slideArray[(index - 1 + slideArray.length) % slideArray.length].classList.add("left"); // Left slide
-        slideArray[(index + 1) % slideArray.length].classList.add("right"); // Right slide
+        slideArray[index].classList.add("active");
+        slideArray[(index - 1 + slideArray.length) % slideArray.length].classList.add("left");
+        slideArray[(index + 1) % slideArray.length].classList.add("right");
 
         // Hide all other slides
         slideArray.forEach((slide, i) => {
@@ -67,39 +64,55 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
-        // 🔄 **Apply Circular Motion Using Translate**
+        // 🔄 Responsive Adjustments for Small Screens
         slideArray.forEach((slide, i) => {
-    let position = (i - index + slideArray.length) % slideArray.length;
+            let position = (i - index + slideArray.length) % slideArray.length;
 
-    if (position === 0) {
-        slide.style.transform = `translateX(0) scale(1.3)`;
-        slide.style.opacity = "1";
-    } else if (position === 1) {
-        slide.style.transform = `translateX(120%) scale(0.9)`; // 🔥 Reduced from 50% to 35%
-        slide.style.opacity = "0.8";
-    } else if (position === slideArray.length - 1) {
-        slide.style.transform = `translateX(-120%) scale(0.9)`; // 🔥 Reduced from -50% to -35%
-        slide.style.opacity = "0.8";
-    } else {
-        slide.style.transform = `translateX(30%) scale(0.7)`; // 🔥 Reduced from 100% to 80%
-        slide.style.opacity = "0";
-    }
-});
+            if (position === 0) {
+                slide.style.transform = `translateX(0) scale(1.3)`;
+                slide.style.opacity = "1";
+            } else if (position === 1) {
+                if(window.innerWidth < 768) {
+                    slide.style.transform = `translateX(30%) scale(0.9)`;
+                    slide.style.opacity = "0.8";
+                } else {
+                    slide.style.transform = `translateX(120%) scale(0.9)`;
+                    slide.style.opacity = "0.8";
+                }
+                
+            } else if (position === slideArray.length - 1) {
+                if(window.innerWidth < 768) {
+                    slide.style.transform = `translateX(-30%) scale(0.9)`;
+                    slide.style.opacity = "0.8";
+                } else {
+                    slide.style.transform = `translateX(-120%) scale(0.9)`;
+                    slide.style.opacity = "0.8";
+                }
+            } else {
+                if(window.innerWidth < 768) {
+                    slide.style.transform = `translateX(0%) scale(0.9)`;
+                    slide.style.opacity = "0.8";
+                } else {
+                    slide.style.transform = `translateX(30%) scale(0.7)`;
+                    slide.style.opacity = "0";
+                }
+            }
+        });
 
-        // Unlock after transition finishes
+        // Unlock after transition
         setTimeout(() => {
             isTransitioning = false;
-        }, 1000); // Match CSS transition time (1s)
+        }, 1000);
     }
 
     function shiftRight() {
-        if (isTransitioning) return; // Prevent spamming clicks
+        if (isTransitioning) return;
         index = (index - 1 + slideArray.length) % slideArray.length;
         updateCarousel();
     }
 
     function shiftLeft() {
-        if (isTransitioning) return; // Prevent spamming clicks
+        if (isTransitioning) return;
         index = (index + 1) % slideArray.length;
         updateCarousel();
     }
@@ -107,5 +120,9 @@ document.addEventListener("DOMContentLoaded", function () {
     nextButton.addEventListener("click", shiftRight);
     prevButton.addEventListener("click", shiftLeft);
 
-    updateCarousel(); // Initial setup
+    window.addEventListener("resize", function () {
+        updateCarousel(); // 🔄 Recalculate positions dynamically
+    });
+    
+    updateCarousel();
 });
