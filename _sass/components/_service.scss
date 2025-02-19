@@ -106,28 +106,33 @@
 
 // Navigation Buttons
 .carousel-button {
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
+    background: $steel; // Subtle background
+    color: $primary;
     border: none;
-    padding: 15px 20px;
-    border-radius: 50%;
-    font-size: 24px;
+    width: 50px; // Define a square size
+    height: 50px;
+    border-radius: 12px; // Slightly rounded edges (not fully circular)
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
     cursor: pointer;
     transition: all 0.3s ease;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     z-index: 10;
-
+    
     &:hover {
-        background: rgba(0, 0, 0, 0.9);
+        background: $call-to-action; // Darker hover effect
+        transform: translateY(-50%) scale(1.1);
     }
 }
 
 .move-left {
-    left: -100px; // Move the left arrow further outside
+    left: 10px; // Move the left arrow further outside
 }
 
 .move-right {
-    right: -100px; // Move the right arrow further outside
+    right: 10px; // Move the right arrow further outside
 }
