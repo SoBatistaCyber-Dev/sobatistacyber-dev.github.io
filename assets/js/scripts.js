@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function () {
         slide.style.transform = `translateX(-120%) scale(0.9)`; // 🔥 Reduced from -50% to -35%
         slide.style.opacity = "0.8";
     } else {
-        slide.style.transform = `translateX(240%) scale(0.7)`; // 🔥 Reduced from 100% to 80%
+        slide.style.transform = `translateX(30%) scale(0.7)`; // 🔥 Reduced from 100% to 80%
         slide.style.opacity = "0";
     }
 });
