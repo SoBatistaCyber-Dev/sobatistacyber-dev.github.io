@@ -1,0 +1,139 @@
+.services-carousel-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    overflow: visible;  // 🔥 Ensures large tiles are not cut off
+    min-height: 300px;
+}
+
+.services-carousel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    padding: 180px 0;
+    
+    // This enables an infinite loop effect visually
+    &::after,
+    &::before {
+        content: "";
+        flex: 1;
+    }
+}
+
+.service-slide {
+    flex: 0 0 auto;
+    width: 250px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out; 
+    transform: scale(0.9);
+    position: absolute; 
+}
+
+// Active Slide (Bigger & Centered)
+.service-slide.active {
+    transform: scale(1.3);
+    opacity: 1;
+    z-index: 3;
+    left: 50%;
+    transform: translateX(-50%) scale(1.3);
+}
+
+// Left & Right Tiles (Smaller but visible)
+.service-slide.left {
+    transform: scale(0.9) translateX(40%);
+    opacity: 0.8;
+    z-index: 1;
+}
+
+.service-slide.right {
+    transform: scale(0.9) translateX(-40%);
+    opacity: 0.8;
+    z-index: 1;
+}
+
+// 🔥 Hide All Other Slides
+.service-slide.others {
+    opacity: 0;
+    transform: scale(0.7);
+    position: absolute;
+    pointer-events: none; // Prevent interaction
+    visibility: hidden;
+}
+
+.service-summary {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+    width: 100%;
+    height: 100%; // Ensure it fills the square shape
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &:hover {
+        transform: scale(1.05);
+        box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .service-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #ff3131;
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease-in-out;
+
+            &:hover {
+                color: #ff5555;
+            }
+        }
+    }
+
+    p {
+        font-size: 1rem;
+        color: #555;
+    }
+}
+
+// Navigation Buttons
+.carousel-button {
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+
+    &:hover {
+        background: rgba(0, 0, 0, 0.9);
+    }
+}
+
+
+.left {
+    left: 20px;
+}
+
+.right {
+    right: 20px;
+}
