@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     slide.style.transform = `translateX(0%) scale(0.9)`;
                     slide.style.opacity = "0.8";
                 } else {
-                    slide.style.transform = `translateX(30%) scale(0.7)`;
+                    slide.style.transform = `translateX(30%) scale(0.9)`;
                     slide.style.opacity = "0";
                 }
             }
