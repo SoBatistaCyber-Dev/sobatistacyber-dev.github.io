@@ -30,28 +30,39 @@ bodyClass: "page-home"
 
 <div class="strip strip-grey">
   <div class="container pt-6 pb-6 pb-md-10">
-    <div class="row justify-content-start">
-      {% assign limit = site.home.limit_services | default: 6 %}
-      {% for service in site.services limit: limit %}
-      <div class="col-12 col-md-4 mb-1">
-        <div class="service service-summary">
-          <div class="service-content">
-            <h2 class="service-title">
-              <a href="{{ service.url | relative_url }}">{{ service.title }}</a>
-            </h2>
-            <p>{{ service.excerpt | markdownify | strip_html | truncate: 100 }}</p>
-          </div>
+    <div class="services-carousel-wrapper">
+      <!-- Navigation Buttons -->
+      <button id="prevService" class="carousel-button move-left">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+    </button>
+      <div class="services-carousel">
+        {% for service in site.services %}
+        <div class="service-slide" data-index="{{ forloop.index0 }}">
+          <a href="{{ service.url | relative_url }}">
+            <div class="service-summary">
+              <div class="service-content">
+                <h2 class="service-title">
+                  {{ service.title }}
+                </h2>
+                <p>{{ service.excerpt | markdownify | strip_html | truncate: 100 }}</p>
+              </div>
+            </div>
+          </a>
         </div>
+        {% endfor %}
       </div>
-      {% endfor %}
-    </div>
-    <div class="row justify-content-center">
-      <div class="col-auto">
-        <a class="button button-primary" href="{{ "services" | relative_url }}">View All Services</a>
-      </div>
+      <!-- Navigation Buttons -->
+      <button id="nextService" class="carousel-button move-right">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
     </div>
   </div>
 </div>
+
 
 {% if site.data.social %}
 <div class="strip">
