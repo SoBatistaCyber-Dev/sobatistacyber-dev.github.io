@@ -123,6 +123,46 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("resize", function () {
         updateCarousel(); // 🔄 Recalculate positions dynamically
     });
-    
     updateCarousel();
 });
+
+/* Search function */
+document.addEventListener("DOMContentLoaded", function () {
+    const searchInput = document.getElementById("serviceSearch");
+    const carousel = document.querySelector(".strip-grey"); // The carousel wrapper
+    const serviceGrid = document.getElementById("servicesList");
+    const services = document.querySelectorAll(".service-item-page");
+
+    function filterServices() {
+        const query = searchInput.value.toLowerCase();
+        let hasResults = false;
+
+        services.forEach(service => {
+            const title = service.querySelector(".service-title-page").textContent.toLowerCase();
+            const description = service.querySelector("p").textContent.toLowerCase();
+
+            if (title.includes(query) || description.includes(query)) {
+                service.style.display = "block";
+                hasResults = true;
+            } else {
+                service.style.display = "none";
+            }
+        });
+
+        if (query.length > 0 && hasResults) {
+            // 🔥 Hide Carousel & Show Grid
+            carousel.style.display = "none";
+            serviceGrid.style.display = "grid";
+        } else {
+            // 🔥 Show Carousel & Hide Grid
+            carousel.style.display = "block";
+            serviceGrid.style.display = "none";
+        }
+    }
+
+    searchInput.addEventListener("input", filterServices);
+
+    // Initially, hide the grid
+    serviceGrid.style.display = "none";
+});
+

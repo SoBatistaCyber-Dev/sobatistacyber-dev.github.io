@@ -3,19 +3,56 @@ layout: default
 bodyClass: "page-services"
 ---
 
-<div class="container pt-6 pb-6">
-  <div class="row">
-    {% for service in site.services %}
-    <div class="col-12 col-md-6 mb-3">
-      <div class="service service-summary">
-        <div class="service-content">
-          <h2 class="service-title">
-            <a href="{{ service.url | relative_url }}">{{ service.title }}</a>
-          </h2>
-          <p>{{ service.excerpt | markdownify | strip_html | truncate: 100 }}</p>
+<div class="background-service-page">
+  <div class="container pt-4 pb-4">
+    <h1 class="services-title-page">Our Services</h1>
+    <!-- 🔎 Search Bar -->
+    <input type="text" id="serviceSearch" class="service-search-page" placeholder="Search services...">
+    <div class="strip strip-grey">
+      <div class="container pt-6 pb-6 pb-md-10">
+        <div class="services-carousel-wrapper">
+          <!-- Navigation Buttons -->
+          <button id="prevService" class="carousel-button move-left">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+          </button>
+          <div class="services-carousel">
+            {% for service in site.services %}
+            <div class="service-slide" data-index="{{ forloop.index0 }}">
+              <a href="{{ service.url | relative_url }}">
+                <div class="service-summary">
+                  <div class="service-content">
+                    <h2 class="service-title">
+                      {{ service.title }}
+                    </h2>
+                    <p>{{ service.excerpt | markdownify | strip_html | truncate: 100 }}</p>
+                  </div>
+                </div>
+              </a>
+            </div>
+            {% endfor %}
+          </div>
+          <!-- Navigation Buttons -->
+          <button id="nextService" class="carousel-button move-right">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+          </button>
         </div>
       </div>
     </div>
-    {% endfor %}
+    <div class="service-grid-page" id="servicesList">
+      {% for service in site.services %}
+      <a href="{{ service.url | relative_url }}" class="service-card-page-link service-item-page"> <!-- 🔗 Now has class! -->
+        <div class="service-card-page">
+          <div class="service-content-page">
+            <h2 class="service-title-page">{{ service.title }}</h2>
+            <p>{{ service.excerpt | markdownify | strip_html | truncate: 120 }}</p>
+          </div>
+        </div>
+      </a>
+      {% endfor %}
+    </div>    
   </div>
 </div>

@@ -49,12 +49,6 @@
         width: 170px;
         height: 170px;
     }
-
-    a {
-        text-decoration: none;
-        color: inherit;
-        transition: color 0.3s ease-in-out;
-    }
 }
 
 // Active Slide (Bigger & Centered)
@@ -103,6 +97,12 @@
 
     @media (max-width: 768px) {
         padding: 30px 15px;
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+        transition: color 0.3s ease-in-out;
     }
 
     &:hover {
@@ -221,84 +221,3 @@
 .background-service-page {
     background-color: #f0faff;
 }
-
-
-.service-card-page-link {
-    text-decoration: none; // Remove default link styling
-    color: inherit; // Inherit text color
-    display: block; // Make it take up full card size
-}
-
-// 🏷 Service Card
-.service-card-page {
-    background: $primary-dark;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    text-align: center;
-    width: 100%;
-    max-width: 280px; // ✅ Controls max width of squares
-    aspect-ratio: 1 / 1; // ✅ Ensures perfect square shape
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-
-    &:hover {
-        transform: translateY(-5px);
-        box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.3);
-    }
-
-
-    .service-title-page {
-        font-size: 1.3rem;
-        font-weight: bold;
-        margin-bottom: 10px;
-        color: $text-color;
-        text-align: center;
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: color 0.3s ease-in-out;
-            &:hover {
-                color: $call-to-action;
-            }
-        }
-    }
-
-    p {
-        font-size: 0.95rem;
-        color: $white-offset;
-        line-height: 1.6;
-        text-align: center;
-    }
-}
-
-.service-grid-page {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); // ✅ 3 columns in a row
-    gap: 20px;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
-// 📱 Responsive Adjustments
-@media (max-width: 992px) {
-    .service-grid {
-        grid-template-columns: repeat(2, 1fr); // ✅ 2 per row on medium screens
-    }
-}
-
-@media (max-width: 600px) {
-    .service-grid {
-        grid-template-columns: repeat(1, 1fr); // ✅ 1 per row on mobile
-    }
-}
-
-
-
-
-

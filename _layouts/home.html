@@ -40,17 +40,16 @@ bodyClass: "page-home"
       <div class="services-carousel">
         {% for service in site.services %}
         <div class="service-slide" data-index="{{ forloop.index0 }}">
-         
+          <a href="{{ service.url | relative_url }}">
             <div class="service-summary">
-              <a href="{{ service.url | relative_url }}">
               <div class="service-content">
                 <h2 class="service-title">
                   {{ service.title }}
                 </h2>
                 <p>{{ service.excerpt | markdownify | strip_html | truncate: 100 }}</p>
               </div>
-            </a>
             </div>
+          </a>
         </div>
         {% endfor %}
       </div>
